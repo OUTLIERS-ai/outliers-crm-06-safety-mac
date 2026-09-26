@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Layer 6 &middot; Order and Safety</title><style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --paper:#F3EEE3; --vellum:#E7DEC9; --ink:#14110C; --ox:#6E1A18; --brass:#B08A3E; }
+  body { font-family: Constantia, Georgia, serif; color:var(--ink); background:var(--paper); }
+  .page { width:210mm; height:296mm; padding:20mm 22mm; background:var(--paper);
+          page-break-after:always; position:relative; overflow:hidden; }
+  .page:last-child { page-break-after:auto; }
+  .mono { font-family: Consolas,"Courier New",monospace; letter-spacing:.16em; text-transform:uppercase; }
+  .label { font-size:8.5pt; color:var(--brass); margin-bottom:3mm; }
+  h1 { font-size:34pt; font-weight:bold; line-height:1.1; }
+  h2 { font-size:19pt; font-weight:bold; margin-bottom:3mm; line-height:1.18; }
+  h3 { font-family:Consolas,monospace; font-size:8pt; letter-spacing:.16em; text-transform:uppercase;
+       color:var(--brass); margin:6mm 0 1.5mm 0; }
+  .deck { font-size:11pt; line-height:1.45; color:var(--ox); margin-bottom:5mm; }
+  p { font-size:10.5pt; line-height:1.5; margin-bottom:3mm; }
+  li { font-size:10.5pt; line-height:1.5; margin-bottom:1.5mm; margin-left:5mm; }
+  .two { display:flex; gap:8mm; margin-top:4mm; }
+  .two > div { flex:1; }
+  figure { margin:5mm 0; }
+  .cap { font-family:Consolas,monospace; font-size:7pt; letter-spacing:.1em; text-transform:uppercase;
+         color:var(--brass); text-align:center; margin-top:2mm; }
+  .box { border-left:2mm solid var(--ox); background:var(--vellum); padding:3.5mm 4.5mm; margin-top:5mm; }
+  .box .mono { font-size:7.5pt; color:var(--ox); display:block; margin-bottom:1.2mm; }
+  .box p { margin:0; }
+  .cmd { font-family:Consolas,monospace; font-size:9.5pt; background:var(--ink); color:var(--paper);
+         padding:3mm 4mm; margin:3mm 0; line-height:1.6; }
+  .footer { position:absolute; bottom:10mm; left:22mm; right:22mm; display:flex;
+            justify-content:space-between; font-size:7pt; color:var(--brass); }
+  .pgno { font-family:Consolas,monospace; font-size:7pt; letter-spacing:.1em; color:var(--brass); }
+  .pos { position:absolute; top:19mm; right:22mm; width:48mm; }
+  .rule { border:none; border-top:.3mm solid var(--ink); opacity:.25; margin:5mm 0; }
+  .cover { display:flex; flex-direction:column; justify-content:space-between; text-align:center; padding-top:44mm; }
+  .cover .word { font-size:24pt; font-weight:bold; letter-spacing:.3em; margin-top:9mm; }
+  .cover h1 { margin-top:14mm; }
+  .cover .sub { font-size:12pt; color:var(--ox); margin-top:5mm; line-height:1.5; }
+  table { width:100%; border-collapse:collapse; margin-top:3mm; }
+  th { font-family:Consolas,monospace; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase;
+       color:var(--brass); text-align:left; padding:1.8mm 2mm; border-bottom:.4mm solid var(--ink); }
+  /* Table padding is load-bearing on page 5, which carries the glossary and is the longest page
+     in every guide. The page is a fixed 296mm with overflow:hidden -- content past the bottom is
+     DELETED, not reflowed -- and Layer 8 was overflowing it. Anything that adds vertical space
+     here can silently cost a reader the last row of the glossary, so re-run
+     check_guide_overflow.py after touching this rule. */
+  td { font-size:9.5pt; line-height:1.36; padding:1.7mm 2mm; border-bottom:.2mm solid rgba(20,17,12,.2); vertical-align:top; }
+  td.k { width:38mm; font-weight:bold; }
+  text { font-family:Consolas,"Courier New",monospace; }
+  .t  { font-size:9.2px; letter-spacing:.05em; fill:#14110C; }
+  .tb { font-size:9.2px; letter-spacing:.12em; fill:#B08A3E; }
+  .tx { font-size:9.2px; letter-spacing:.05em; fill:#6E1A18; }
+  .ts { font-size:8px;   letter-spacing:.05em; fill:#14110C; opacity:.8; }
+  .tw { font-size:9.2px; letter-spacing:.05em; fill:#F3EEE3; }
+  .tsw{ font-size:8px;   letter-spacing:.05em; fill:#F3EEE3; }
+  .tsb{ font-size:8px;   letter-spacing:.12em; fill:#B08A3E; }
+
+  .c { font-family:Consolas,monospace; font-size:7.6pt; white-space:nowrap; margin:0; line-height:1.35; overflow:hidden; }
+  .cmd { white-space:pre !important; overflow:hidden; padding:2.4mm 4mm; margin:2.4mm 0; line-height:1.5; }
+  .r { font-size:9pt; line-height:1.3; color:var(--ox); margin:0 0 1.5mm 0; }
+  .macrun p { font-size:9.6pt; line-height:1.4; margin-bottom:2mm; }
+  .macrun h3 { margin-top:4mm; }
+  .macrun .box p + p { margin-top:2mm; }
+  td { font-size:9.1pt; line-height:1.3; padding:1.4mm 2mm; }
+  p { font-size:10.3pt; line-height:1.46; margin-bottom:2.6mm; }
+  li { font-size:10.3pt; line-height:1.46; }
+  h3 { margin-top:5mm; }
+</style></head><body><div class="page cover"><div><svg width="132" height="132" viewBox="0 0 200 200" style="display:block;margin:0 auto"><circle cx="100" cy="100" r="90" fill="none" stroke="#14110C" stroke-width="3.15"/><circle cx="100" cy="100" r="50.4" fill="none" stroke="#14110C" stroke-width="18"/><circle cx="162.51" cy="35.26" r="10.35" fill="#6E1A18"/></svg><div class="word mono">Outliers</div><h1>Order and Safety</h1><div class="sub">Layer 6 of 8 &nbsp;&middot;&nbsp; Built into the machinery,<br>not written in the instructions.</div><div class="mono" style="font-size:10pt;letter-spacing:.3em;color:#F3EEE3;background:#6E1A18;display:inline-block;padding:2mm 6mm;margin-top:8mm">For Mac</div></div><div style="margin-bottom:15mm"><div class="mono" style="font-size:8.5pt;color:#B08A3E">Est. MMXXVI &nbsp;&middot;&nbsp; Outliers Accelerator</div></div></div><div class="page"><div class="label mono">Layer 6 &middot; Order and Safety</div><div class="pos"><svg viewBox="0 0 152 20" width="100%"><rect x="0" y="0" width="16" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="19" y="0" width="16" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="38" y="0" width="16" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="57" y="0" width="16" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="76" y="0" width="16" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="95" y="0" width="16" height="7" fill="#14110C" stroke="#14110C" stroke-width="0.4"/><rect x="114" y="0" width="16" height="7" fill="#E7DEC9" stroke="#14110C" stroke-width="0.4"/><rect x="133" y="0" width="16" height="7" fill="#E7DEC9" stroke="#14110C" stroke-width="0.4"/><text x="0" y="17" style="font-size:6px;letter-spacing:.14em;fill:#B08A3E">LAYER 6</text></svg></div><h2>A rule an assistant can talk itself out of is not a rule</h2><div class="deck">An assistant told to be careful will sometimes not be. The restriction has to sit somewhere it cannot be talked out of.</div><h3>What the last layer left you with</h3><p>You have several assistants, each capable of forming a view and drafting something. Any one of them could put a message in front of a real person. Nothing decides what order they run in. Nothing counts them against a shared limit. And any one of them can approve its own work.</p><h3>What this layer builds</h3><p>The rules that make all of that safe, built into how your system runs rather than written into what you asked for. The most important one: nothing reaches another human being without you.</p><figure><svg viewBox="0 0 560 158" width="100%"><defs><marker id="a6" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#6E1A18"/></marker></defs>
+      <rect x="14" y="52" width="70" height="36" fill="#E7DEC9" stroke="#14110C" stroke-width="0.8"/>
+      <text class="ts" x="30" y="74">draft</text>
+      <g fill="none" stroke="#6E1A18" stroke-width="1.2">
+        <rect x="110" y="52" width="70" height="36"/><rect x="206" y="52" width="70" height="36"/>
+        <rect x="302" y="52" width="70" height="36"/>
+      </g>
+      <text class="tx" x="118" y="68">a second</text><text class="tx" x="118" y="82">opinion</text>
+      <text class="tx" x="214" y="68">daily</text><text class="tx" x="214" y="82">limits</text>
+      <text class="tx" x="310" y="68">do not</text><text class="tx" x="310" y="82">contact</text>
+      <g stroke="#14110C" stroke-width="1.1" fill="none" marker-end="url(#a6)">
+        <path d="M88 70 L106 70"/><path d="M184 70 L202 70"/><path d="M280 70 L298 70"/><path d="M376 70 L394 70"/>
+      </g>
+      <rect x="398" y="52" width="84" height="36" fill="#14110C"/>
+      <text class="tsb" x="407" y="70">YOU</text>
+      <text class="tsw" x="407" y="84">press send</text>
+      <path d="M486 70 L512 70" stroke="#6E1A18" stroke-width="1.3" fill="none" marker-end="url(#a6)"/>
+      <text class="t" x="518" y="66">a real</text><text class="t" x="518" y="80">person</text>
+      <text class="ts" x="14" y="112">nothing skips a step</text>
+      <text class="ts" x="110" y="112">the one that wrote it</text>
+      <text class="ts" x="110" y="124">never approves it</text>
+      <text class="ts" x="206" y="112">counted across</text>
+      <text class="ts" x="206" y="124">everything at once</text>
+      <text class="ts" x="302" y="112">message someone</text>
+      <text class="ts" x="302" y="124">yourself and the</text>
+      <text class="ts" x="302" y="136">system backs off</text>
+    </svg><div class="cap">Every draft passes every step. The last one is a person.</div></figure><div class="footer"><span class="mono">Layer 6 &middot; Order and Safety</span><span class="pgno">2</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 6 &middot; How it works</div><h2>How it works</h2><div class="deck">5 rules follow. Each one is enforced by the software rather than requested in the instructions.</div>
+      <h3>1. The one that wrote it never approves it</h3>
+      <p>For the same reason you would not mark your own homework. A separate assistant reads the
+      draft cold, without knowing who wrote it, and can reject it.</p>
+      <h3>2. Limits are counted across everything at once</h3>
+      <p>If you allow yourself a number of messages a day, that number applies to your whole system,
+      not to each part of it separately. 3 well-behaved activities each staying under the limit
+      can add up to a breach between them, and the platform you are messaging on counts the total,
+      not your good intentions.</p>
+      <h3>3. One job at a time</h3>
+      <p>Only one part of your system may use a logged-in connection at a time. 2 jobs using the
+      same one at once is how you get signed out, or locked out.</p>
+      <h3>4. If you message someone yourself, the system backs off</h3>
+      <p>The moment you take a conversation over personally, everything automatic for that person
+      stops until you say otherwise. Nothing should be talking over you, and nothing should send a
+      polite follow-up in front of you for someone you had a real conversation with
+      the day before.</p>
+      <p>This one is worth setting up properly, because the failure it prevents is embarrassing in
+      front of exactly the people you most want to impress.</p>
+      <h3>5. Nothing reaches a person without you</h3>
+      <p>Your system prepares, drafts, checks and queues. It does not send. The final action is
+      yours, every time, and there is no setting to change that. Anything automatic in
+      here writes to your own records; anything pointed at another human being waits for you.</p><div class="footer"><span class="mono">Layer 6 &middot; Order and Safety</span><span class="pgno">3</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 6 &middot; Before you start</div><h2>Before you start on a Mac</h2><p>Everything in this guide is typed into <strong>Terminal</strong>, the Mac's window for typing commands instead of clicking. Press Command and Space together, type Terminal, and press Return.</p><p>This layer needs Python and git, which you set up for Layer 1 (its page "Before you start on a Mac"), and the layers before this one. It installs no add-ons, so it works with either Python a Mac may have.</p><h3>How to type the lines</h3><p>Where this guide shows several lines in a black box, type them one at a time: type the first, press Return, wait for it to finish and give you a fresh line, then type the next. The installer asks you questions. Each offers an answer in [square brackets]; press Return to take it, or type your own and press Return.</p><h3>Where your CRM is</h3><p>Layer 1 made your CRM at <strong>~/CRM</strong>: a folder called CRM in your home folder (the folder with your name and the house picture in Finder's sidebar). If you chose another folder in Layer 1, put your own folder wherever a line in this guide says ~/CRM. The installer finds your CRM by itself either way.</p><p><strong>Apple Silicon or Intel</strong> (the 2 kinds of chip a Mac can have; the Apple menu, then About This Mac, shows yours): the steps are the same on both, and both were tested.</p><p><strong>Tried only on test Macs.</strong> Mac test for this version not yet recorded.</p><div class="footer"><span class="mono">Layer 6 &middot; Order and Safety</span><span class="pgno">4</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 6 &middot; Install</div><h2>Build it</h2><div class="deck">3 lines, typed into Terminal. The last one asks you a few questions so what you get is yours, then does the work.</div><div class="cmd">git clone https://github.com/OUTLIERS-ai/outliers-crm-06-safety-mac<br>cd outliers-crm-06-safety-mac<br>python3 install.py</div><p>This layer needs Layers 1 to 5. It changes how the assistants from Layer 5 run.</p><h3>What it asks you, and why</h3><table><tr><th style="width:52mm">Question</th><th>What it changes</th></tr><tr><td class="k">How many messages a day is sensible in your world?</td><td>Used as the shared limit across everything your system does. Set it low; you can raise it.</td></tr><tr><td class="k">Is there anyone who must never be contacted automatically?</td><td>Clients mid-project, friends, anyone sensitive. They go on your do-not-contact list for good, and nothing will draft or queue anything aimed at them.</td></tr></table><h3>What you end up with</h3><ul><li>An order your jobs run in, and what happens when a step fails.</li><li>A separate check on anything written, by something that did not write it.</li><li>Shared limits, so parts of your system cannot breach a cap between them.</li><li>A do-not-contact list, and the rule that nothing sends without you.</li></ul><div class="footer"><span class="mono">Layer 6 &middot; Install</span><span class="pgno">5</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 6 &middot; Finishing</div><h2>Now use it</h2><div class="deck">2 minutes, and it is the only way to trust it.</div><p>Put someone on your do-not-contact list. Then tell your system to prepare a message for them.</p><p>The tools this layer installed live in a folder called <strong>_engine</strong> inside your CRM. In Terminal, go there first, then type the next 2 lines (if your CRM is not at ~/CRM, put your own folder in the cd line):</p><div class="cmd verbatim">cd ~/CRM/_engine<br>python3 holds.py hold "Rowan Ashdown" "taking this one myself"<br>python3 sendgate.py "Rowan Ashdown"</div><p>It refuses, and tells you why.</p><p>Try it with the profile link instead of the name. It still refuses, because the do-not-contact entry is on the person rather than on one spelling of them, which is the Layer 2 identity work paying off in a place you would not have predicted.</p><p>Once you have seen it refuse, you know the list works, rather than assuming it does.</p><h3>If you already had something like this</h3><p>Your test: put someone on a do-not-contact list in your current setup, then try to reach them through a different route than the one you used to list them. If it lets you, your list is on a piece of text rather than on a person.</p><hr class="rule"><h3>What this layer leaves unsolved</h3><p>Everything is safe and orderly now, and it works through its queue in the order the queue was built. Something that arrived this morning waits behind a list made last month. Nothing here knows the difference between urgent and merely present.</p><div class="box"><span class="mono">Next: Layer 7 &middot; Today</span><p>One short list each morning, in the order people actually deserve your attention, with the reason on every line.</p></div><h3>Words used in this guide</h3><table><tr><td class="k">Do-not-contact list</td><td>The people your system will not contact, whatever route it tries.</td></tr><tr><td class="k">Shared limit</td><td>A cap counted across everything your system does, not per activity.</td></tr><tr><td class="k">Queue</td><td>Work waiting to be done, in the order it was added.</td></tr><tr><td class="k">Send gate</td><td>The point where a person, not the system, decides something goes out.</td></tr></table><div class="footer"><span class="mono">Layer 6 &middot; Order and Safety</span><span class="pgno">6</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 6 &middot; What was run on a Mac</div><div class="macrun"><h2>What was run on a Mac</h2><p>A <b>test Mac</b> is one of the Macs GitHub rents out by the minute to run a script.</p><p>Mac test for this version not yet recorded.</p><div class="box"><span class="mono">NOT RUN ON THE TEST MACS</span><p>The box asking to install the developer tools cannot appear on a test Mac, because GitHub's Macs already have them.</p></div></div><div class="footer"><span class="mono">Layer 6 &middot; Order and Safety</span><span class="pgno">7</span><span class="mono">Outliers</span></div></div></body></html>

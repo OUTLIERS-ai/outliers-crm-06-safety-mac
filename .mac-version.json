@@ -1,0 +1,108 @@
+{
+  "main": "outliers-crm-06-safety",
+  "main_commit": "8a0c545bf8d1f0e78fc7ad4003cef135d6d7f964",
+  "mac": "outliers-crm-06-safety-mac",
+  "macgen_commit": "50a7935",
+  "date": "2026-09-26",
+  "fingerprint": "639efa7b9e0367cd9d2d08423651280f0742edfc52ab88f7f07e1d9948d7b077",
+  "left_out_of_fingerprint": [
+    ".mac-version.json",
+    "guide/Layer-6-Order-and-Safety (Mac).pdf",
+    "guide/Layer-6-Order-and-Safety.html"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "category": "same",
+      "sha256": "271540188ae129e9d99d3a8ad965db71df8c7cd7abfacb3580f60a5b61de5c1a"
+    },
+    {
+      "path": "README.md",
+      "category": "changed",
+      "sha256": "37f1c82af122a409f7528c05106dfa80919845f5575f3bdac1035a34d0cfac92"
+    },
+    {
+      "path": "WHAT-I-STOLE.md",
+      "category": "same",
+      "sha256": "8ef22f42008cd78a0d7981853f5b5d1e7c7f3dec2463daf6bb376fb7dcade832"
+    },
+    {
+      "path": "engine/browser_lock.py",
+      "category": "same",
+      "sha256": "f54138fd9601f91eac4fd502b56f35796dbe829296c955e70c4e8bf042682747"
+    },
+    {
+      "path": "engine/crm_paths.py",
+      "category": "same",
+      "sha256": "ab10c6f724efc213d756862c20e42f31a0f96d17e6f54122cea95c075d1b54ab"
+    },
+    {
+      "path": "engine/holds.py",
+      "category": "same",
+      "sha256": "96c07f983f849c4e93fa131a98913d1d72c2ae116a1d0d4422d09152dffa7bd0"
+    },
+    {
+      "path": "engine/limits.py",
+      "category": "same",
+      "sha256": "6c1fb47bfb0370d9062d667b8393339b16c0fc208d6173074bdd7c1ed269d51f"
+    },
+    {
+      "path": "engine/review.py",
+      "category": "same",
+      "sha256": "aece48fd0626cfcec20833b07bb5c66a0809b127ec23f8ee303ec1da74eb61ae"
+    },
+    {
+      "path": "engine/safe_write.py",
+      "category": "same",
+      "sha256": "34708344aa0a1d531c356306b33f76b33670413fd96f045dfcc21271deebc026"
+    },
+    {
+      "path": "engine/sendgate.py",
+      "category": "same",
+      "sha256": "3c3789fef5e4faf8a83faf17cf7f7099ce542447f43175ba80916971ca15f521"
+    },
+    {
+      "path": "engine/sequence.py",
+      "category": "same",
+      "sha256": "a4e93304da2a119d19f91e66c8b36efe6eb113fc942a1b781e9f9a1493a0ae9e"
+    },
+    {
+      "path": "guide/Layer-6-Order-and-Safety (Mac).pdf",
+      "category": "left out of the fingerprint"
+    },
+    {
+      "path": "guide/Layer-6-Order-and-Safety.html",
+      "category": "left out of the fingerprint"
+    },
+    {
+      "path": "install.py",
+      "category": "same",
+      "sha256": "ba310636ebdfb7ce9ebe5becdfa5f5499372b36ff617520eda7b4577d49a6409"
+    },
+    {
+      "path": "tests/test_holds.py",
+      "category": "same",
+      "sha256": "a92fca795030c8bb350b0a9984cc6fff030e5ffc0fe14fc3b44e23a9dc184f70"
+    },
+    {
+      "path": "tests/test_nothing_can_send.py",
+      "category": "same",
+      "sha256": "00d19a1ba772f1573ef6083de1d0dd487585d0c441834cc8de40d35bc872f2b5"
+    },
+    {
+      "path": "tests/test_send_gate_refuses.py",
+      "category": "same",
+      "sha256": "cb9ee2a5d87539a76536486d1653cd389b056a5ae7958fdf1f940dca5590df4d"
+    },
+    {
+      "path": "tests/test_sequence_and_review.py",
+      "category": "same",
+      "sha256": "22820697f7438fcceeebe2f4b2dee235fb18bc18c6d65ce70157af9f38ff6e40"
+    },
+    {
+      "path": "tests/test_shared_limits_and_browser.py",
+      "category": "same",
+      "sha256": "a0738ce0ee0660b0d346c11db5ba1dfe298a6f66ce494bb30f8600f76ce248c4"
+    }
+  ]
+}
